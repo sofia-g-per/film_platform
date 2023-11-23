@@ -44,10 +44,10 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
 
         return [
-            'SofyaPer\FilmPlatform\Components\MyComponent' => 'myComponent',
+            'SofyaPer\FilmPlatform\Components\Films' => 'Films',
+            'SofyaPer\FilmPlatform\Components\FilmCrew' => 'FilmCrew'
         ];
     }
 
