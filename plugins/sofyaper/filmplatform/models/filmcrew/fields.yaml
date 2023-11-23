@@ -1,0 +1,15 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    firstName:
+        label: Имя
+        type: text
+    middleName:
+        label: Имя
+        type: text
+    lastName:
+        label: Имя
+        type: text
+    

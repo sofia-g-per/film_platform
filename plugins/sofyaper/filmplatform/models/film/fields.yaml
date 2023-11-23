@@ -1,0 +1,30 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+     name:
+        label: Название
+        type: text
+    description:
+        label: Описание
+        type: textarea
+    release_date:
+        label: Дата выхода
+        type: datePicker
+        format: D M Y
+    cover_img:
+        label: Обложка
+        type: fileUpload
+    genres: 
+        label: Жанры
+        type: entries
+        source: \SofyaPer\FilmPlatform\Models\Genre
+    actors: 
+        label: Актёры
+        type: entries
+        source: \SofyaPer\FilmPlatform\Models\FilmCrew
+    directors: 
+        label: Режиссёры
+        type: entries
+        source: \SofyaPer\FilmPlatform\Models\FilmCrew
