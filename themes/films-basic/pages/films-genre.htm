@@ -15,31 +15,41 @@ maxItems = 10
     <section>
         <form data-request="Films::onFilter" data-request-update="{ 'films-list': '#films-list' }">
             <div>
-                <label>Дата выпуска</label>
+                <label class="font-weight-bold">Дата выпуска</label>
                 <input type="date" name="release_date_from">
                 <span>-</span>
                 <input type="date" name="release_date_until">
             </div>
             <div>
-                <label>Режиссеры</label>
-                {% for director in FilmCrew.directors%}
-                    <input type="checkbox" name="directors[]" value="{{director.id}}"> 
-                    <label for="">{{ director.last_name~" "~director.first_name }}</label>
-                {% endfor %}
+                <label class="font-weight-bold">Режиссеры</label>
+                <br>
+                <div class="d-flex flex-wrap mw-75">
+                    {% for director in FilmCrew.directors%}
+                    <div class="d-flex p-1">
+                        <input type="checkbox" name="directors[]" value="{{director.id}}"> 
+                        <label for="">{{ director.last_name~" "~director.first_name }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             <div>
-                <label>Актеры</label>
-                {% for actor in FilmCrew.actors%}
-                    <input type="checkbox" name="actors[]" value="{{actor.id}}"> 
-                    <label for="">{{ actor.last_name~" "~actor.first_name }}</label>
-                {% endfor %}
+                <label class="font-weight-bold">Актеры</label>
+                <br>
+                <div class="d-flex flex-wrap mw-75">
+                    {% for actor in FilmCrew.actors%}
+                    <div class="d-flex p-1">
+                        <input type="checkbox" name="actors[]" value="{{actor.id}}"> 
+                        <label for="">{{ actor.last_name~" "~actor.first_name }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             <button type="submit">Найти</button>   
         </form>
     </section>
 
     <section id="films-list">
-        
+        <h5>Фильмы</h5>
         {% partial 'films-list' films=films %}
 
     <section>

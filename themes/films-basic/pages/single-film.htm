@@ -14,28 +14,29 @@ maxItems = 10
     <p>{{ film.release_date | date('d-m-Y')}}</p>
 
     <h5>Актеры</h5>
-    {% for crew in film.actors %}
-        <p>{{ crew.last_name~' '~crew.first_name }}</p>
-    {% endfor %}
+    <div>
+        {% for crew in film.actors %}
+            <p>{{ crew.last_name~' '~crew.first_name }}</p>
+        {% endfor %}
+    </div>
 
     <h5>Режиссеры</h5>
+    <div>
     {% for crew in film.directors %}
         <p>{{ crew.last_name~' '~crew.first_name }}</p>
     {% endfor %}
-    
+    </div>
 
     {% if film.cover_img %}
-        <div>
-            <img src="{{ film.cover_img.url }}">
-        </div>
+        <img src="{{ film.cover_img.url }}" class="w-20">
     {% endif %}
 
-    <div>
+    <div class="mw-100 d-flex p-3">
         {% if film.photos %}
             {% for photo in film.photos %}
-            <div>
-                <img src="{{ photo.url }}">
-            </div>
+                <div>
+                    <img  src="{{ photo.url }}" >
+                </div>
             {% endfor %}
         {% endif %}
     </div>
