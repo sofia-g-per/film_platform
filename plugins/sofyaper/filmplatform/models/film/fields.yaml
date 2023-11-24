@@ -13,9 +13,16 @@ fields:
         label: Дата выхода
         type: datePicker
         format: D M Y
+    slug:
+        label: Код
+        type: text
     cover_img:
         label: Обложка
         type: fileUpload
+    cover_img:
+        label: Фотографии
+        type: fileUpload    
+        multiple: true
     genres: 
         label: Жанры
         type: entries

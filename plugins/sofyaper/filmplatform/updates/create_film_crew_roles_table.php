@@ -18,8 +18,8 @@ class CreateFilmCrewRolesTable extends Migration
     {
         Schema::create('sofyaper_film_platform_film_crew_roles', function(Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('name');
-            $table->string('code');
+            $table->string('name')->unique();
+            $table->string('code')->unique();
         });
     }
 

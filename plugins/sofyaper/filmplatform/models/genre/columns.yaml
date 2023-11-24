@@ -7,7 +7,7 @@ columns:
         label: Название
         type: text
         searchable: true
-    code:
+    slug:
         label: Код
         type: text
         searchable: true

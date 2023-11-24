@@ -9,47 +9,47 @@ class SeedGenresTable extends Seeder
     {
         $genre = new Genre;
         $genre->name = 'драма';
-        $genre->code = 'drama';
+        $genre->slug = 'drama';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'документальное кино';
-        $genre->code = 'documentary';
+        $genre->slug = 'documentary';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'автобиография';
-        $genre->code = 'autobiography';
+        $genre->slug = 'autobiography';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'фентези';
-        $genre->code = 'fantasy';
+        $genre->slug = 'fantasy';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'научная фантастика';
-        $genre->code = 'sci-fi';
+        $genre->slug = 'sci-fi';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'боевик';
-        $genre->code = 'action';
+        $genre->slug = 'action';
         $genre->save();
         
         $genre = new Genre;
         $genre->name = 'супергероика';
-        $genre->code = 'superhero';
+        $genre->slug = 'superhero';
         $genre->save();
         
         $genre = new Genre;
         $genre->name = 'триллер';
-        $genre->code = 'thriller';
+        $genre->slug = 'thriller';
         $genre->save();
 
         $genre = new Genre;
         $genre->name = 'комедия';
-        $genre->code = 'comedy';
+        $genre->slug = 'comedy';
         $genre->save();
     }
 }

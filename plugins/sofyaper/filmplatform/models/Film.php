@@ -1,6 +1,9 @@
 <?php namespace SofyaPer\FilmPlatform\Models;
 
 use Model;
+use \System\Models\File;
+use \SofyaPer\FilmPlatform\Models\Genre;
+use \SofyaPer\FilmPlatform\Models\FilmCrew;
 
 /**
  * Film Model
@@ -23,15 +26,23 @@ class Film extends Model
 
     public $dates = ['release_date', 'created_at'];
 
+    public $attachOne = [
+        'cover_img' => File::class
+    ];
+
+    public $attachMany = [
+        'photos' => File::class
+    ];
+
     public $belongsToMany = [
         'genres' => [
-            \SofyaPer\FilmPlatform\Models\Genre::class, 
+            Genre::class, 
             'table' => 'sofyaper_film_platform_genres_to_films',
             'key' => 'film_id',
             'otherKey' => 'genre_id'
         ],
-        'filmCrew' => [
-            \SofyaPer\FilmPlatform\Models\FilmCrew::class, 
+        'film_crew' => [
+            FilmCrew::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
             'key' => 'film_id',
             'otherKey' => 'film_crew_id'

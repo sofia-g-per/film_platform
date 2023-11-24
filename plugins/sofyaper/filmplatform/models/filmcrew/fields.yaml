@@ -3,13 +3,16 @@
 # ===================================
 
 fields:
-    firstName:
+    first_name:
         label: Имя
         type: text
-    middleName:
+    middle_name:
         label: Имя
         type: text
-    lastName:
+    last_name:
         label: Имя
+        type: text
+    slug:
+        label: Код
         type: text
     

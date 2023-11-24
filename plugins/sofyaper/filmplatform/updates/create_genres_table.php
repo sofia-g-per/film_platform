@@ -18,8 +18,8 @@ class CreateGenresTable extends Migration
     {
         Schema::create('sofyaper_film_platform_genres', function(Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('name');
-            $table->string('code');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
         });
     }
 

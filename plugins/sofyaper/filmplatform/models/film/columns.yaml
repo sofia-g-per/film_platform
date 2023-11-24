@@ -22,6 +22,10 @@ columns:
         type: image
         width: 150
         sortable: false 
+    slug:
+        label: Код
+        type: text
+        searchable: true
     created_at:
         label: Дата добавления на платформу
         type: date

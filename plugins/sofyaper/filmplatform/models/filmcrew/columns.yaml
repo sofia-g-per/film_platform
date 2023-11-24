@@ -15,3 +15,7 @@ columns:
         label: Имя
         type: text
         searchable: true
+    slug:
+        label: Код
+        type: text
+        searchable: true

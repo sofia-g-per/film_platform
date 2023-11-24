@@ -47,7 +47,7 @@ class Films extends ComponentBase
     private function filterByCrewRole($query, $filmCrewIds, $roleCode){
         $roleId = FilmCrewRole::where('code', $roleCode)->pluck('id')->first();
 
-        $query = $query->whereHas('filmCrew', function ($query) use($roleId, $filmCrewIds){
+        $query = $query->whereHas('film_crew', function ($query) use($roleId, $filmCrewIds){
             $query->whereIn('film_crew_id', $filmCrewIds)
                 ->where('film_crew_role_id', $roleId);
         });

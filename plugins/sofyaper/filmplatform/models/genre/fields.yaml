@@ -6,6 +6,6 @@ fields:
     name:
         label: Название
         type: text
-    code:
+    slug:
         label: Код
         type: text
