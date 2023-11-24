@@ -77,7 +77,6 @@ class Films extends ComponentBase
         $query = Film::query();
         if($genreSlug){
             $query = $this->filterByGenre($query, $genreSlug);
-            // $query = Genre::where('slug', $genreSlug)->with('films');
         }
 
         if($release_date_from && $release_date_until){
@@ -101,5 +100,11 @@ class Films extends ComponentBase
         $query = Film::query();
         $query = $query->whereRelation('genres', 'slug', $genreSlug);
         return $query->get();
+    }
+
+    public function getFilmBySlug(){
+        $filmSlug = $this->param('film');
+        $films = Film::query()->where('slug', $filmSlug)->with(['genres', 'film_crew'])->first();
+        return $films;
     }
 }

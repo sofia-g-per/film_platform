@@ -2,6 +2,8 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use RainLab\User\Models\User;
+use SofyaPer\FilmPlatform\Models\Film;
 
 /**
  * Plugin Information File
@@ -10,6 +12,8 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+
+    public $require = ['RainLab.User'];
     /**
      * pluginDetails about this plugin.
      */
@@ -36,7 +40,22 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        //
+        User::extend( function($model){
+            $model->belongsToMany = [
+                'favouriteFilms' => [
+                    Film::class, 
+                    'table' => 'sofyaper_film_platform_users_favourite_films',
+                    'key' => 'user_id',
+                    'otherKey' => 'film_id'
+                ],
+                'reviews' => [
+                    Film::class, 
+                    'table' => 'sofyaper_film_platform_reviews',
+                    'key' => 'user_id',
+                    'otherKey' => 'film_id'
+                ]
+            ];
+        });
     }
 
     /**
