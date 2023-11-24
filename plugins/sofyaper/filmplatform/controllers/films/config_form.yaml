@@ -18,8 +18,7 @@ defaultRedirect: sofyaper/filmplatform/films
 create:
     title: backend::lang.form.create_title
     redirect: sofyaper/filmplatform/films/update/:id
-    redirectClose: sofyaper/filmplatform/films
-
+    
 # Update page
 update:
     title: backend::lang.form.update_title

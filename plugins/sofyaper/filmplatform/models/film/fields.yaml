@@ -3,7 +3,7 @@
 # ===================================
 
 fields:
-     name:
+    name:
         label: Название
         type: text
     description:
@@ -11,27 +11,27 @@ fields:
         type: textarea
     release_date:
         label: Дата выхода
-        type: datePicker
+        type: datepicker
         format: D M Y
     slug:
         label: Код
         type: text
     cover_img:
         label: Обложка
-        type: fileUpload
-    cover_img:
+        type: fileupload
+    photos:
         label: Фотографии
-        type: fileUpload    
+        type: fileupload    
         multiple: true
     genres: 
         label: Жанры
-        type: entries
+        type: relation
+        nameFrom: name
         source: \SofyaPer\FilmPlatform\Models\Genre
-    actors: 
-        label: Актёры
-        type: entries
-        source: \SofyaPer\FilmPlatform\Models\FilmCrew
-    directors: 
-        label: Режиссёры
-        type: entries
-        source: \SofyaPer\FilmPlatform\Models\FilmCrew
+        context: update
+    film_crew:
+        label: Актеры и режиссеры
+        type: partial
+        path: \SofyaPer\FilmPlatform\Controllers\film\film_crew.htm
+        context: update
+

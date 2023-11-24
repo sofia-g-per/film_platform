@@ -27,6 +27,7 @@ class FilmCrewRole extends Model
         'filmCrew' => [
             \SofyaPer\FilmPlatform\Models\FilmCrew::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
+            'pivotModel' => FilmCrewToFilms::class,
             'key' => 'film_crew_id',
             'otherKey' => 'film_crew_role_id'
         ]

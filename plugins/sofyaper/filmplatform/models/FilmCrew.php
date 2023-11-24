@@ -24,15 +24,18 @@ class FilmCrew extends Model
     public $timestamps = false;
 
     public $belongsToMany = [
+        
         'roles' => [
             \SofyaPer\FilmPlatform\Models\FilmCrewRole::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
+            'pivotModel' => FilmCrewToFilms::class,
             'key' => 'film_crew_id',
             'otherKey' => 'film_crew_role_id'
         ],
         'films' => [
             \SofyaPer\FilmPlatform\Models\Film::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
+            'pivotModel' => FilmCrewToFilms::class,
             'key' => 'film_crew_id',
             'otherKey' => 'film_id'
         ]

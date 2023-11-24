@@ -67,7 +67,8 @@ class Plugin extends PluginBase
         return [
             'SofyaPer\FilmPlatform\Components\Films' => 'Films',
             'SofyaPer\FilmPlatform\Components\Genres' => 'Genres',
-            'SofyaPer\FilmPlatform\Components\FilmCrew' => 'FilmCrew'
+            'SofyaPer\FilmPlatform\Components\FilmCrew' => 'FilmCrew',
+            'SofyaPer\FilmPlatform\Components\Reviews' => 'Reviews',
         ];
     }
 
@@ -103,6 +104,12 @@ class Plugin extends PluginBase
                     'films' => [
                         'label' => 'Фильмы',
                         'url' => Backend::url('sofyaper/filmplatform/films'),
+                        'icon' => 'icon-leaf',
+                        'permissions' => ['sofyaper.filmplatform.*'],
+                    ],
+                    'filmCrewToFilms' => [
+                        'label' => 'Участники фильмов',
+                        'url' => Backend::url('sofyaper/filmplatform/filmcrewtofilms'),
                         'icon' => 'icon-leaf',
                         'permissions' => ['sofyaper.filmplatform.*'],
                     ],

@@ -8,11 +8,11 @@ columns:
         type: text
         searchable: true
     middle_name:
-        label: Имя
+        label: Отчество
         type: text
         searchable: true
     last_name:
-        label: Имя
+        label: Фамиилия
         type: text
         searchable: true
     slug:

@@ -7,10 +7,10 @@ fields:
         label: Имя
         type: text
     middle_name:
-        label: Имя
+        label: Отчество
         type: text
     last_name:
-        label: Имя
+        label: Фамиилия
         type: text
     slug:
         label: Код
