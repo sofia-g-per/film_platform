@@ -21,7 +21,6 @@ class CreateFilmsTable extends Migration
             $table->string('name');
             $table->string('description')->nullable()->default(null);
             $table->date('release_date');
-            $table->string('cover_img')->nullable()->default(null);
             $table->string('slug')->unique();
             $table->timestamps();
         });
