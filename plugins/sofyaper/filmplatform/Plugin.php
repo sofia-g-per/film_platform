@@ -47,6 +47,7 @@ class Plugin extends PluginBase
 
         return [
             'SofyaPer\FilmPlatform\Components\Films' => 'Films',
+            'SofyaPer\FilmPlatform\Components\Genres' => 'Genres',
             'SofyaPer\FilmPlatform\Components\FilmCrew' => 'FilmCrew'
         ];
     }
