@@ -3,11 +3,11 @@
 use Cms\Classes\ComponentBase;
 
 /**
- * UsersFavouriteFilms Component
+ * Reviews Component
  *
  * @link https://docs.octobercms.com/3.x/extend/cms-components.html
  */
-class UsersFavouriteFilms extends ComponentBase
+class Reviews extends ComponentBase
 {
     public function componentDetails()
     {

@@ -1,0 +1,16 @@
+<form ajax-handler="">
+
+    <input type="filmId" value="{{film.id}}" style="display:none;">
+    <div>
+        <label for="">Рейтинг</label>
+        <input name="rating" type="number" min="0" max="5" required>
+    </div>
+    <div>
+        <label for="">Комментарий</label>
+        <br>
+        <textarea name="text" cols="30" rows="10" required></textarea>
+    </div>
+
+    <button type="submit">Сохранить</button>
+
+</form>

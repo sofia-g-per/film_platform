@@ -1,12 +1,22 @@
+[session]
+security = "all"
+checkToken = 0
+==
 <!DOCTYPE html>
 <html lang="rus">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% styles %}
 </head>
 <body>
+    <header>
+        {% if not user %}
+            <a href="{{ 'login' | page }}">Войти</a>
+        {% endif %}
+    </header>
     {% page  %}
     {% framework %}
     {% framework extras %}
