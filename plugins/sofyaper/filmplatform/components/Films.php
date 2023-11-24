@@ -103,8 +103,9 @@ class Films extends ComponentBase
         $actors = input('actors');
         $genreSlug = $this->param('genre');
         $query = Film::query();
+
         if($genreSlug){
-            $query = $this->getFilmsByGenre($query, $genreSlug);
+            $query = $this->filterByGenre($query, $genreSlug);
         }
 
         if($release_date_from && $release_date_until){
