@@ -13,6 +13,17 @@ maxItems = 10
     <h5>Дата выхода</h5>
     <p>{{ film.release_date | date('d-m-Y')}}</p>
 
+    <h5>Актеры</h5>
+    {% for crew in film.actors %}
+        <p>{{ crew.last_name~' '~crew.first_name }}</p>
+    {% endfor %}
+
+    <h5>Режиссеры</h5>
+    {% for crew in film.directors %}
+        <p>{{ crew.last_name~' '~crew.first_name }}</p>
+    {% endfor %}
+    
+
     {% if film.cover_img %}
         <div>
             <img src="{{ film.cover_img.url }}">
@@ -28,4 +39,5 @@ maxItems = 10
             {% endfor %}
         {% endif %}
     </div>
+
 </div>
