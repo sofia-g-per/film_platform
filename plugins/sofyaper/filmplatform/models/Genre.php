@@ -26,7 +26,7 @@ class Genre extends Model
     public $belongsToMany = [
         'films' => [
             \SofyaPer\FilmPlatform\Models\Film::class, 
-            'table' => 'sofyaper_film_platform_film_crew_to_films',
+            'table' => 'sofyaper_film_platform_genres_to_films',
             'key' => 'genre_id',
             'otherKey' => 'film_id'
         ]

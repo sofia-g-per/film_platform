@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use SofyaPer\FilmPlatform\Models\FilmCrewRole;
 use SofyaPer\FilmPlatform\Models\Film;
+use SofyaPer\FilmPlatform\Models\Genre;
 /**
  * Films Component
  *
@@ -44,6 +45,11 @@ class Films extends ComponentBase
         return Film::all();
     }
 
+    private function filterByGenre($query, $genreSlug){
+        $query = $query->whereRelation('genres', 'slug', $genreSlug);
+        return $query;
+    } 
+
     private function filterByCrewRole($query, $filmCrewIds, $roleCode){
         $roleId = FilmCrewRole::where('code', $roleCode)->pluck('id')->first();
 
@@ -63,13 +69,17 @@ class Films extends ComponentBase
 
     public function onFilter()
     {
-
         $release_date_from = input('release_date_from');
         $release_date_until = input('release_date_until');
         $directors = input('directors');
         $actors = input('actors');
-
+        $genreSlug = $this->param('genre');
         $query = Film::query();
+        if($genreSlug){
+            $query = $this->filterByGenre($query, $genreSlug);
+            // $query = Genre::where('slug', $genreSlug)->with('films');
+        }
+
         if($release_date_from && $release_date_until){
             $query = $this->filterByDate($query, $release_date_from, $release_date_until);
         }
@@ -84,5 +94,12 @@ class Films extends ComponentBase
 
         $films = $query->get();
         $this->page['films'] = $films;
+    }
+
+    public function getFilmsByGenre(){
+        $genreSlug = $this->param('genre');
+        $query = Film::query();
+        $query = $query->whereRelation('genres', 'slug', $genreSlug);
+        return $query->get();
     }
 }

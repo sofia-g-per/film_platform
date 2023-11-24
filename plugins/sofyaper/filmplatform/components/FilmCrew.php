@@ -29,7 +29,6 @@ class FilmCrew extends ComponentBase
 
     private function getByRoleCode($code)
     {
-        // $roleId = FilmCrewRole::where('code', $code)->first();
         return FilmCrewModel::whereRelation('roles', 'code', $code)->get();
     }
 

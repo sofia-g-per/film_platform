@@ -1,0 +1,45 @@
+title = "films-by-genre"
+meta_title = "Фильмы"
+layout = "default"
+url = "/:genre/films"
+[Films]
+maxItems = 10
+[FilmCrew]
+==
+<section>
+    <h1>Фильмы</h1>
+
+    {% component 'Films' %}
+    {% component 'FilmCrew' %}
+    {% set films = Films.getFilmsByGenre %}
+    <section>
+        <form data-request="Films::onFilter" data-request-update="{ 'films-list': '#films-list' }">
+            <div>
+                <label>Дата выпуска</label>
+                <input type="date" name="release_date_from">
+                <span>-</span>
+                <input type="date" name="release_date_until">
+            </div>
+            <div>
+                <label>Режиссеры</label>
+                {% for director in FilmCrew.directors%}
+                    <input type="checkbox" name="directors[]" value="{{director.id}}"> 
+                    <label for="">{{ director.last_name~" "~director.first_name }}</label>
+                {% endfor %}
+            </div>
+            <div>
+                <label>Актеры</label>
+                {% for actor in FilmCrew.actors%}
+                    <input type="checkbox" name="actors[]" value="{{actor.id}}"> 
+                    <label for="">{{ actor.last_name~" "~actor.first_name }}</label>
+                {% endfor %}
+            </div>
+            <button type="submit">Найти</button>   
+        </form>
+    </section>
+
+    <section id="films-list">
+        
+        {% partial 'films-list' films=films %}
+    <section>
+</section>

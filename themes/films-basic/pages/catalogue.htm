@@ -1,44 +1,15 @@
 url = "/"
 layout = "default"
 title = "catalogue"
-meta_title = "Каталог фильмов"
-[Films]
-maxItems = 10
-[FilmCrew]
+meta_title = "Жанры"
+
+[Genres]
 ==
-<section>
-    <h1>Фильмы</h1>
-
-    {% component 'Films' %}
-    {% component 'FilmCrew' %}
-    {% set films = Films.films %}
-    <section>
-        <form data-request="Films::onFilter" data-request-update="{ 'films-list': '#films-list' }">
-            <div>
-                <label>Дата выпуска</label>
-                <input type="date" name="release_date_from">
-                <span>-</span>
-                <input type="date" name="release_date_until">
-            </div>
-            <div>
-                <label>Режиссеры</label>
-                {% for director in FilmCrew.directors%}
-                    <input type="checkbox" name="directors[]" value="{{director.id}}"> 
-                    <label for="">{{ director.last_name~" "~director.first_name }}</label>
-                {% endfor %}
-            </div>
-            <div>
-                <label>Актеры</label>
-                {% for actor in FilmCrew.actors%}
-                    <input type="checkbox" name="actors[]" value="{{actor.id}}"> 
-                    <label for="">{{ actor.last_name~" "~actor.first_name }}</label>
-                {% endfor %}
-            </div>
-            <button type="submit">Найти</button>   
-        </form>
-    </section>
-
-    <section id="films-list">
-        {% partial 'films-list' films=films roleId=roleId %}
-    <section>
-</section>
+<h1>Жанры</h1>
+<div class="genres-list">
+    {% for genre in Genres.genres %}
+        <a href="{{ 'films-genre' | page({ genre: genre.slug}) }}">
+            <h4>{{ genre.name }}</h4>
+        </a>
+    {% endfor %}
+</div>
