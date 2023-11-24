@@ -83,7 +83,7 @@ class Films extends ComponentBase
 
     /**
      * Получение фильмов по жанрам из параметров страницы
-     * @return array <SofyaPer\FilmPlatform\Models\Film> список фильма указанного жанра
+     * @return Collection<SofyaPer\FilmPlatform\Models\Film> список фильма указанного жанра
      */
     public function getFilmsByGenre(){
         $genreSlug = $this->param('genre');
