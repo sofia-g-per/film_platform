@@ -20,7 +20,6 @@ columns:
     cover_img:
         label: Обложка
         type: image
-        width: 150
         sortable: false 
     slug:
         label: Код
