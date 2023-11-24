@@ -4,7 +4,7 @@ use Model;
 use \System\Models\File;
 use \SofyaPer\FilmPlatform\Models\Genre;
 use \SofyaPer\FilmPlatform\Models\FilmCrew;
-use \SofyaPer\FilmPlatform\Models\FilmCrewToFilms;
+use \SofyaPer\FilmPlatform\Models\FilmCrewToFilm;
 use RainLab\User\Models\User;
 
 /**
@@ -48,8 +48,7 @@ class Film extends Model
             'table' => 'sofyaper_film_platform_film_crew_to_films',
             'key' => 'film_id',
             'otherKey' => 'film_crew_id',
-            'pivot' => ['film_crew_role_id']
-            // 'pivotModel' => FilmCrewToFilms::class
+            'pivotModel' => FilmCrewToFilm::class
         ],
         'favourited_by' => [
             User::class, 

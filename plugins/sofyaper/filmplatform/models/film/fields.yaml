@@ -29,9 +29,5 @@ fields:
         nameFrom: name
         source: \SofyaPer\FilmPlatform\Models\Genre
         context: update
-    film_crew:
-        label: Актеры и режиссеры
-        type: partial
-        path: \SofyaPer\FilmPlatform\Controllers\film\film_crew.htm
-        context: update
+
 

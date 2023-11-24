@@ -13,12 +13,14 @@ class Films extends Controller
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class
     ];
 
     /**
      * @var string formConfig file
      */
     public $formConfig = 'config_form.yaml';
+    public $relationConfig = 'film_crew.yaml';
 
     /**
      * @var string listConfig file

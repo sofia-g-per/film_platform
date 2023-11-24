@@ -1,6 +1,7 @@
 <?php namespace SofyaPer\FilmPlatform\Models;
 
 use Model;
+use \SofyaPer\FilmPlatform\Models\FilmCrewToFilm;
 
 /**
  * FilmCrew Model
@@ -28,14 +29,14 @@ class FilmCrew extends Model
         'roles' => [
             \SofyaPer\FilmPlatform\Models\FilmCrewRole::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
-            'pivotModel' => FilmCrewToFilms::class,
+            'pivotModel' => FilmCrewToFilm::class,
             'key' => 'film_crew_id',
             'otherKey' => 'film_crew_role_id'
         ],
         'films' => [
             \SofyaPer\FilmPlatform\Models\Film::class, 
             'table' => 'sofyaper_film_platform_film_crew_to_films',
-            'pivotModel' => FilmCrewToFilms::class,
+            'pivotModel' => FilmCrewToFilm::class,
             'key' => 'film_crew_id',
             'otherKey' => 'film_id'
         ]
