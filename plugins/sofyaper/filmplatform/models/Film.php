@@ -26,6 +26,8 @@ class Film extends Model
      */
     public $rules = [];
 
+    protected $slugs = ['slug' => 'name'];
+
     public $dates = ['release_date', 'created_at'];
 
     public $attachOne = [

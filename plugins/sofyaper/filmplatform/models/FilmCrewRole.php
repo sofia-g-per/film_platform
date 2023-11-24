@@ -23,6 +23,8 @@ class FilmCrewRole extends Model
 
     public $timestamps = false;
 
+    protected $slugs = ['code' => 'name'];
+
     public $belongsToMany = [
         'filmCrew' => [
             \SofyaPer\FilmPlatform\Models\FilmCrew::class, 

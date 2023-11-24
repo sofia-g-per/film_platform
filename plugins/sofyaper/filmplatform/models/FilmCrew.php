@@ -22,7 +22,10 @@ class FilmCrew extends Model
      */
     public $rules = [];
 
+    protected $slugs = ['slug' => 'name'];
+
     public $timestamps = false;
+
 
     public $belongsToMany = [
         
